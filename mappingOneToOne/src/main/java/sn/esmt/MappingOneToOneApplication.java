@@ -70,19 +70,27 @@ public class MappingOneToOneApplication implements CommandLineRunner {
 	}
 	
 	private void afficherPasseportPersonne() {
-		List<Passeport> liste  = repoPasseport.findAll();
+		List<Passeport> passeports = repoPasseport.findAll();
 		
-		for (Passeport p : liste) {
-			System.out.println(" -- Numero passeport : " + p.getNumpass() + "\n -- numero ci : " + p.getCitoyen().getNumci());
+		System.out.println();
+		
+		for (Passeport p : passeports) {
+			System.out.println(" ** numero passeport : " + p.getNumpass() + " | type passeport : " + p.getType() + " | numero ci citoyen : " + p.getCitoyen().getNumci() );
 		}
+		
+		System.out.println();
 	}
 	
 	private void afficherCitoyenPasseport() {
-		List<Citoyen> liste  = repoCitoyen.findAll();
+		List<Citoyen> citoyens = repoCitoyen.findAll();
 		
-		for (Citoyen c : liste) {
-			System.out.println(" ** Numero ci : " + c.getNumci() + "\n ** numero passeport : " + c.getPasseport().getNumpass());
+		System.out.println();
+		
+		for (Citoyen c : citoyens) {
+			System.out.println(" ** numero citoyen : " +c.getNumci()+ " | nom citoyen : " + c.getNom() + " | prenom citoyen : " + c.getPrenom() + " | numero passeport : " + c.getPasseport().getNumpass() + " | Type passeport : " + c.getPasseport().getType());
 		}
+		
+		System.out.println();
 	}
 
 }
