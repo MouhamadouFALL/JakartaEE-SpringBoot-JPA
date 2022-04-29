@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +22,7 @@ public class ProjetRecherche implements Serializable {
 	private Integer idprojet;
 	private String theme;
 	
+	@ManyToMany
 	@JoinTable(name = "projets_profs", joinColumns = @JoinColumn(name = "idprojet"), inverseJoinColumns = @JoinColumn(name = "idprof"))
 	private List<Professeur> professeurs;
 
